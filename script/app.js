@@ -6,6 +6,7 @@
  * Released under the MIT license
  */
 
+
 (function() {
 	var asciiContainer = document.getElementById("ascii");
 	var capturing = false;
@@ -33,7 +34,7 @@
 			button.onclick = function() {
 				if (capturing) {
 					camera.pause();
-					button.innerText = 'resume';
+					button.innerText = 'Resume';
 				} else {
 					camera.start();
 					button.innerText = 'Pause camera';

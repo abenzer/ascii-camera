@@ -7,7 +7,11 @@ var ascii = (function() {
 
 		// var characters = (" .,:;i1tfLCG08@").split("");
 		var characters = (" 1").split("");
-		var wordLetters = ("READ").split("");
+		var word = document.getElementById('word').value;
+		if (word == "") {
+			word = "DEFAULT";
+		}
+		var wordLetters = word.split("");
 
 		var context = canvas.getContext("2d");
 		var canvasWidth = canvas.width;
