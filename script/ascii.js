@@ -5,7 +5,9 @@ var ascii = (function() {
 		// Original code by Jacob Seidelin (http://www.nihilogic.dk/labs/jsascii/)
 		// Heavily modified by Andrei Gheorghe (http://github.com/idevelop)
 
-		var characters = (" .,:;i1tfLCG08@").split("");
+		// var characters = (" .,:;i1tfLCG08@").split("");
+		var characters = (" 1").split("");
+		var wordLetters = ("READ").split("");
 
 		var context = canvas.getContext("2d");
 		var canvasWidth = canvas.width;
@@ -18,6 +20,7 @@ var ascii = (function() {
 		var contrastFactor = (259 * (options.contrast + 255)) / (255 * (259 - options.contrast));
 
 		var imageData = context.getImageData(0, 0, canvasWidth, canvasHeight);
+		var wordLetterIndex = 0;
 		for (var y = 0; y < canvasHeight; y += 2) { // every other row because letters are not square
 			for (var x = 0; x < canvasWidth; x++) {
 				// get each pixel's brightness and output corresponding character
@@ -41,9 +44,23 @@ var ascii = (function() {
 
 				var character = characters[(characters.length - 1) - Math.round(brightness * (characters.length - 1))];
 
-				asciiCharacters += character;
-			}
+				var wordLetter;
+				if (character == "1") {
+					wordLetter = `<span style="opacity: ${1 - (brightness * 1.2)}">${wordLetters[wordLetterIndex]}</span>`
+					if (wordLetterIndex < wordLetters.length - 1) {
+						wordLetterIndex++;
+					} else {
+						wordLetterIndex = 0;
+					}
+				} else {
+					wordLetter = " ";
+					wordLetterIndex = 0;
+				}
 
+				asciiCharacters += wordLetter;
+
+			}
+			wordLetterIndex = 0;
 			asciiCharacters += "\n";
 		}
 
