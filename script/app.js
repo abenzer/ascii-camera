@@ -8,11 +8,9 @@
 
 
 function start() {
-	
-}
 
 
-(function() {
+// (function() {
 	var asciiContainer = document.getElementById("ascii");
 	var capturing = false;
 
@@ -38,6 +36,12 @@ function start() {
 		onSuccess: function() {
 			document.getElementById("info").style.display = "none";
 
+			setTimeout(() => {
+				camera.start();
+				capturing = true;
+				document.getElementById("buttonStart").style.display = "none";
+			}, 1000)
+
 			const button = document.getElementById("button");
 			button.style.display = "block";
 			button.onclick = function() {
@@ -46,7 +50,7 @@ function start() {
 					button.innerText = 'Resume';
 				} else {
 					camera.start();
-					button.innerText = 'Pause camera';
+					button.innerText = 'Pause';
 				}
 				capturing = !capturing;
 			};
@@ -62,4 +66,5 @@ function start() {
 			document.getElementById("notSupported").style.display = "block";
 		}
 	});
-})();
+// })();
+}
