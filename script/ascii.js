@@ -6,7 +6,7 @@ var ascii = (function() {
 		// Heavily modified by Andrei Gheorghe (http://github.com/idevelop)
 
 		// var characters = (" .,:;i1tfLCG08@").split("");
-		var characters = (" 1").split("");
+		var characters = ("01").split("");
 		var word = document.getElementById('word').value;
 		if (word == "") {
 			word = "DEFAULT";
