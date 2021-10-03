@@ -36,7 +36,7 @@
 					button.innerText = 'resume';
 				} else {
 					camera.start();
-					button.innerText = 'pause';
+					button.innerText = 'Pause camera';
 				}
 				capturing = !capturing;
 			};
