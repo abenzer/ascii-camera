@@ -7,6 +7,11 @@
  */
 
 
+function start() {
+	
+}
+
+
 (function() {
 	var asciiContainer = document.getElementById("ascii");
 	var capturing = false;
@@ -18,8 +23,12 @@
 		mirror: true,
 
 		onFrame: function(canvas) {
+
+			var contrast = document.getElementById('contrast').value;
+
 			ascii.fromCanvas(canvas, {
 				// contrast: 128,
+				contrast: contrast,
 				callback: function(asciiString) {
 					asciiContainer.innerHTML = asciiString;
 				}

@@ -9,7 +9,7 @@ var ascii = (function() {
 		var characters = ("01").split("");
 		var word = document.getElementById('word').value;
 		if (word == "") {
-			word = "DEFAULT";
+			word = "MEDIUM ";
 		}
 		var wordLetters = word.split("");
 

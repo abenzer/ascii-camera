@@ -17,6 +17,11 @@
 			font-family: "Inconsolata";
 			letter-spacing: 0.02em;
 		}
+		input[type=text] {
+			border: 1px solid #999;
+			padding: .5rem;
+			border-radius: .25rem;
+		}
 	</style>
 </head>
 <body>
@@ -27,9 +32,11 @@
 		<img src="images/screenshot.png" align="center" />
 	</div>
 
-	<input id="word" type="text" placeholder="Word" />
+	<input id="word" type="text" placeholder="Enter a word" />
+	<input id="contrast" type="range" min="0" max="256" value="128" />
 
 	<button id="button" onClick="start()">Start</button>
+	<button id="buttonStart" onClick="start()">Enable camera</button>
 
 	<pre id="ascii"></pre>
 
