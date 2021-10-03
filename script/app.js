@@ -42,7 +42,7 @@ function start() {
 				document.getElementById("buttonStart").style.display = "none";
 			}, 1000)
 
-			const button = document.getElementById("button");
+			const button = document.getElementById("buttonPause");
 			button.style.display = "block";
 			button.onclick = function() {
 				if (capturing) {

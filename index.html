@@ -13,6 +13,16 @@
 	<!-- <link href="https://fonts.googleapis.com/css2?family=Inconsolata:wght,wdth@200..900;50..200&display=swap" rel="stylesheet">  -->
 
 	<style>
+		body {
+			padding: 0;
+			margin: 0;
+			font-family: "Inconsolata";
+		}
+		ul {
+			list-style-type: none;
+			margin: 0;
+			padding: 0;
+		}
 		span {
 			font-family: "Inconsolata";
 			letter-spacing: 0.02em;
@@ -22,22 +32,76 @@
 			padding: .5rem;
 			border-radius: .25rem;
 		}
+		.pressable:active {
+			transform: scale(0.95);
+		}
+		.button {
+			background-color: #000;
+			color: #fff;
+			border-radius: 100rem;
+			border: none;
+			padding: .75rem 1.5rem;
+			cursor: pointer;
+		}
+		#info {
+			text-align: center;
+		}
+		#info h1 {
+			margin-bottom: 1rem;
+		}
+		.settings {
+			display: flex;
+			border-bottom: 1px solid #000;
+		}
+		.settings > li {
+			padding: 1rem;
+		}
+		.settings label {
+			display: block;
+			font-size: .9rem;
+			margin-bottom: .25rem;
+		}
+		.settings .right {
+			width: 100%;
+			text-align: right;
+			align-self: center;
+		}
+		#buttonPause {
+			float: right;
+		}
 	</style>
 </head>
 <body>
 
-	<div id="notSupported">
-		<h1>Your browser does not support the Camera API.</h1>
-		<img src="images/screenshot.png" align="center" />
+	<div id="notSupported" style="text-align: center;">
+		<h1>Sorry, your browser does not support the Camera API. Try Firefox or Chrome.</h1>
+		<img src="images/screenshot.png" />
 	</div>
 
-	<input id="word" type="text" placeholder="Enter a word" />
-	<input id="contrast" type="range" min="0" max="256" value="128" />
+	<ul class="settings">
+		<li>
+			<label>
+				Word
+			</label>
+			<input id="word" type="text" placeholder="Enter a word" />
+		</li>
+		<li>
+			<label>
+				Contrast
+			</label>
+			<input id="contrast" type="range" min="0" max="256" value="128" />
+		</li>
+		<li class="right">
+			<button id="buttonPause" class="button pressable" style="display: none;">Pause</button>
+		</li>
+	</ul>
 
-	<button id="button">Pause camera</button>
-	<button id="buttonStart" onClick="start()">Enable camera</button>
-	
-	<h1 id="info">Please allow this page to access your camera.</h1>
+	<div id="info">
+		<h1>
+			Please allow this page to access your camera.
+		</h1>
+		<button id="buttonStart" class="button pressable" onClick="start()">Enable camera</button>
+	</div>
 
 	<pre id="ascii"></pre>
 
